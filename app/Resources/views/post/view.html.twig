@@ -1,0 +1,23 @@
+{% extends "::base.html.twig" %}
+
+{% block title 'Publication' %}
+
+ {% block header %}
+     <h1>Contenu de la publication</h1>
+ {% endblock %}
+
+ {% block content %}
+     <div class="row">
+         <div class="col-md-8">
+             <h2>
+                 {{ post.title }}
+             </h2>
+             <p class="lead">
+                 by <a href="#">{{ post.author }}</a>
+             </p>
+             <p><span class="glyphicon glyphicon-time"></span> Posted on {{ post.createdAt | date('d/m/Y') }}</p>
+             <hr>
+             <hr>
+         </div>
+     </div>
+ {% endblock %}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>{% block title 'aPlaceForGeeks' %}</title>
+    {{ include('css_block.html.twig') }}
+    <link href="{{ asset('bundles/app/css/simple-sidebar.css')}}" rel="stylesheet">
+</head>
+<body class="account">
+
+{{ include(':header:navigation.html.twig') }}
+
+<div class="container">
+
+    <div id="wrapper" class="toggled">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li>
+                    <a href="{{ path('fos_user_profile_show') }}">Tableau de bord</a>
+                </li>
+                <li>
+                    <a href="{{ path('fos_user_profile_edit') }}">Gestion de compte</a>
+                </li>
+                <li>
+                    <a href="{{path('fos_user_change_password') }}">Modifier le mot de passe</a>
+                </li>
+                <li>
+                    <a href="#">Profil</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+        <header>
+            {% block header %}
+                <h1>A place for Geeks</h1>
+            {% endblock %}
+        </header>
+
+        <!-- /#page-content-wrapper -->
+        <div class="row">
+            <div class="col-xs-12">
+                {{ include(':alert:alert.html.twig') }}
+                {% block content '' %}
+            </div>
+        </div>
+    </div>
+</div>
+{{ include(':footer:footer.html.twig') }}
+{{ include('js_block.html.twig') }}
+</body>
+</html>

@@ -1,0 +1,10 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+{% block title 'Connexion' %}
+
+{% block header %}
+    <h1>Connexion</h1>
+    <hr>
+{% endblock %}
+{% block fos_user_content %}
+{{ include('FOSUserBundle:Security:login_content.html.twig') }}
+{% endblock fos_user_content %}

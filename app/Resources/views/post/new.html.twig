@@ -1,0 +1,18 @@
+{% extends "::base.html.twig" %}
+
+{% block title 'Publication' %}
+
+ {% block header %}
+     <h1>Création d'une publication</h1>
+ {% endblock %}
+
+ {% block content %}
+     {{ form_start(form, {'attr': {'class': 'form-horizontal','novalidate': 'novalidate'}}) }}
+     {{ form_errors(form) }}
+     {{ form_row(form.title) }}
+     {{ form_row(form.description) }}
+     {{ form_rest(form) }}
+     <input type="submit" class="btn btn-primary" value="Enregister">
+     {{ form_end(form) }}
+
+ {% endblock %}

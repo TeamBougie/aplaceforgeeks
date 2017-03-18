@@ -1,0 +1,9 @@
+{% extends "FOSUserBundle::account_layout.html.twig" %}
+{% block title 'Mon compte' %}
+{% block header %}
+    <h1>Mise à jour des informations du compte</h1>
+    <hr>
+{% endblock %}
+{% block fos_user_content %}
+    {% include "@FOSUser/Profile/edit_content.html.twig" %}
+{% endblock fos_user_content %}

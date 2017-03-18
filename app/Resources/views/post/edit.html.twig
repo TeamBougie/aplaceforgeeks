@@ -1,0 +1,21 @@
+{% extends "::base_account.html.twig" %}
+
+{% block title 'Publication' %}
+
+ {% block header %}
+     <h1>Modification de la publication</h1>
+ {% endblock %}
+
+ {% block content %}
+     <div class="row">
+         <div class="col-md-8">
+             {{ form_start(form, {'attr': {'class': 'form-horizontal','novalidate': 'novalidate'}}) }}
+             {{ form_errors(form) }}
+             {{ form_row(form.title) }}
+             {{ form_row(form.description) }}
+             {{ form_rest(form) }}
+             <input type="submit" class="btn btn-primary" value="Enregistrer">
+             {{ form_end(form) }}
+         </div>
+     </div>
+ {% endblock %}
