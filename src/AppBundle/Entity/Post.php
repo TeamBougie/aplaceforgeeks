@@ -14,7 +14,7 @@ use Symfony\Component\Security\Core\Exception\InvalidArgumentException;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * Tweet.
+ * Post.
  *
  * @ORM\Table(name="post")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\PostRepository")
@@ -29,6 +29,7 @@ class Post
     {
         $this->createdAt = new \DateTime();
         $this->status = self::STATUS_ACTIVE;
+        $this->title = "";
     }
     /**
      * @var int
@@ -44,7 +45,7 @@ class Post
      * @Assert\Length(max=160, maxMessage = "Your Tweet cannot be longer than {{ limit }} characters")
      * @ORM\Column(name="title", type="string", length=160)
      */
-    private $title;
+    private $title = "";
     /**
      * @var \DateTime
      * @Assert\NotBlank()
@@ -63,7 +64,7 @@ class Post
      * @Assert\Length(max=160, maxMessage = "Your Tweet cannot be longer than {{ limit }} characters")
      * @ORM\Column(name="description", type="string", length=160)
      */
-    private $description;
+    private $description = "";
     /**
      * @var string
      * @Assert\NotBlank()
@@ -77,7 +78,6 @@ class Post
      *     targetEntity="AppBundle\Entity\User",
      *     inversedBy="posts"
      * )
-     * @ORM\JoinColumn(nullable=false)
      */
     private $author;
     /**
@@ -85,7 +85,7 @@ class Post
      *
      * @return int
      */
-    public function getId()
+    public function getId():int
     {
         return $this->id;
     }
@@ -94,7 +94,7 @@ class Post
      * Set id.
      * @param $value
      */
-    public function setId($id)
+    public function setId(int $id)
     {
         $this->id = $id;
     }
@@ -103,7 +103,7 @@ class Post
      * Get title.
      * @return string
      */
-    public function getTitle()
+    public function getTitle(): string
     {
         return $this->title;
     }
@@ -112,7 +112,7 @@ class Post
      * Set title.
      * @param $value
      */
-    public function setTitle($title)
+    public function setTitle(string $title)
     {
         $this->title = $title;
     }
@@ -121,7 +121,7 @@ class Post
      * Get createdAt.
      * @return \DateTime
      */
-    public function getCreatedAt()
+    public function getCreatedAt(): DateTime
     {
         return $this->createdAt;
     }
@@ -130,7 +130,7 @@ class Post
      * Set createdAt.
      * @param $value
      */
-    public function setCreatedAt($createdAt)
+    public function setCreatedAt(DateTime $createdAt)
     {
         $this->createdAt = $createdAt;
     }
@@ -139,7 +139,7 @@ class Post
      * Get url.
      * @return string
      */
-    public function getUrl()
+    public function getUrl():String
     {
         return $this->url;
     }
@@ -148,15 +148,15 @@ class Post
      * Set url.
      * @param $value
      */
-    public function setUrl($url)
+    public function setUrl(String $url)
     {
         $this->url = $url;
     }
-    public function setDescription($description)
+    public function setDescription(String $description)
     {
         $this->description = $description;
     }
-    public function getDescription()
+    public function getDescription():String
     {
         return $this->description;
     }
@@ -164,7 +164,7 @@ class Post
     /**
      * @param $status
      */
-    public function setStatus($status)
+    public function setStatus(String $status)
     {
         if($status != self::STATUS_ACTIVE && $status != self::STATUS_CLOSED)
         {
@@ -176,7 +176,7 @@ class Post
     /**
      * @return string
      */
-    public function getStatus()
+    public function getStatus():String
     {
         return $this->status;
     }
@@ -196,7 +196,7 @@ class Post
      *
      * @return \AppBundle\Entity\User
      */
-    public function getAuthor()
+    public function getAuthor():User
     {
         return $this->author;
     }

@@ -16,7 +16,14 @@
             "Tests\\": "tests/"
         }
     },
+    "repositories": {
+        "Environment": {
+            "type": "vcs",
+            "url": "https://github.com/TeamBougie/Environment"
+        }
+    },
     "require": {
+        "TeamBougie/Environment": "dev-master",
         "php": ">=5.5.9",
         "doctrine/doctrine-bundle": "^1.6",
         "doctrine/doctrine-cache-bundle": "^1.2",
@@ -48,7 +55,8 @@
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget"
         ],
         "post-install-cmd": [
-            "@symfony-scripts"
+            "@symfony-scripts",
+            "test -d vendor\\TeamBougie\\Environment && ln -s .\\vendor\\TeamBougie\\Environment Environment"
         ],
         "post-update-cmd": [
             "@symfony-scripts"
