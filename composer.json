@@ -56,7 +56,7 @@
         ],
         "post-install-cmd": [
             "@symfony-scripts",
-            "test -d vendor\\TeamBougie\\Environment && ln -s .\\vendor\\TeamBougie\\Environment Environment"
+            "test -d vendor\\TeamBougie\\Environment && ln -s vendor\\TeamBougie\\Environment Environment"
         ],
         "post-update-cmd": [
             "@symfony-scripts"
