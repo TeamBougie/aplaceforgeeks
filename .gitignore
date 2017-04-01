@@ -17,4 +17,5 @@
 /.idea/
 .php_cs.cache
 /Environment/
-
+/Environment
+composer.phar
