@@ -29,7 +29,7 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
         $userData = array(
             array(
                 'username' => 'vivous',
-                'email' => 'vivous@gmail.com',
+                'email' => 'vivienmarnier@gmail.com',
                 'password' => 'vivous',
             ),
             array(

@@ -7,6 +7,12 @@ html {
 body {
     /* Margin bottom by footer height */
     margin-bottom: 60px;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+main {
+    flex: 1 0 auto;
 }
 .footer {
     position: absolute;

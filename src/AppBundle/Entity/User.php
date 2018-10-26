@@ -13,6 +13,7 @@ use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Validator\Constraints as Assert;
+use Zend\Code\Exception\InvalidArgumentException;
 
 /**
  * @ORM\Entity
@@ -40,10 +41,10 @@ class User extends BaseUser
      */
     private $posts;
     /**
-     * @var string
-     * @Assert\Length(max=160)
-     * @ORM\Column(name="avatar", type="string", length=160, nullable=true)
+     * @var Avatar
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Avatar")
      *
+     * @Assert\NotBlank(groups={"upload"})
      */
     private $avatar;
     /**
@@ -110,28 +111,30 @@ class User extends BaseUser
     /**
      * @param $avatar
      */
-    public function setAvatar(String $avatar)
+    public function setAvatar(Avatar $avatar):User
     {
         $this->avatar = $avatar;
+        return $this;
     }
 
     /**
-     * @return mixed
+     * @return Avatar
      */
-    public function getAvatar():String
+    public function getAvatar(): ?Avatar
     {
         return $this->avatar;
     }
     /**
      * @param $gender
      */
-    public function setGender(String $gender)
+    public function setGender(String $gender):User
     {
         if($gender != self::GENDER_UNSPECIFIED && $gender != self::GENDER_MALE && $gender != self::GENDER_FEMALE)
         {
             throw new InvalidArgumentException();
         }
         $this->gender = $gender;
+        return $this;
     }
 
     /**
@@ -145,7 +148,7 @@ class User extends BaseUser
     /**
      * @param $birthday
      */
-    public function setBirthday(DateTime $birthday)
+    public function setBirthday(\DateTime $birthday)
     {
         $this->birthday = $birthday;
     }
@@ -153,7 +156,7 @@ class User extends BaseUser
     /**
      * @return mixed
      */
-    public function getBirthday():DateTime
+    public function getBirthday():\DateTime
     {
         return $this->birthday;
     }
@@ -161,9 +164,10 @@ class User extends BaseUser
     /**
      * @param Country $country
      */
-    public function setCountry(Country $country)
+    public function setCountry(Country $country) :User
     {
         $this->country = $country;
+        return $this;
     }
 
     /**
@@ -177,13 +181,14 @@ class User extends BaseUser
     /**
      * @param $description
      */
-    public function setDescription(String $description)
+    public function setDescription(String $description):User
     {
         $this->description = $description;
+        return $this;
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getDescription():String
     {

@@ -1,43 +1,52 @@
-<!-- Navigation -->
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="container">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">Start Bootstrap</a>
+{% block navbar %}
+    {% if is_granted('ROLE_USER') %}
+        <!-- Dropdown Structure -->
+        <ul id="user-nav-content" class="dropdown-content navbar-dropdown-container">
+            <li class="navbar-login">
+                <div class="btn-profil">
+                    <div>
+                        <a class="waves-effect waves-light btn" href="{{ path('fos_user_profile_show') }}">
+                            <i class="material-icons left">settings</i>
+                            Settings
+                        </a>
+                    </div>
+                    <div class="logout-btn">
+                        <a href="{{ path('fos_user_security_logout') }}" class="waves-effect waves-light btn red accent-4">
+                            <i class="material-icons center">power_settings_new</i>
+                        </a>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    {% endif %}
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-wrapper">
+            <div class="container">
+                <a href="{{ path('homepage') }}" class="brand-logo">Logo</a>
+                <ul class="right hide-on-med-and-down">
+                    {% if is_granted('ROLE_USER') %}
+                        <li>
+                            <a href="{{ path('app_post_new') }}">Publier</a>
+                        </li>
+                        <!-- Dropdown Trigger -->
+                        <li>
+                            <a class="dropdown-trigger" href="#!" data-target="user-nav-content">
+                                <img class="circle responsive-img navatar" src="{{ asset(get_avatar(app.user)) }}">
+                                {{ app.user.username }}
+                                <i class="material-icons right">arrow_drop_down</i>
+                            </a>
+                        </li>
+                    {% else %}
+                        <li>
+                            <a href="{{ path('fos_user_registration_register') }}">Inscription</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('fos_user_security_login') }}">Connexion</a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div>
         </div>
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-                <li>
-                    <a href="{{ path('homepage') }}">Accueil</a>
-                </li>
-                {% if is_granted('ROLE_USER') %}
-                    <li>
-                        <a href="{{ path('fos_user_profile_show') }}">Mon compte</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('app_post_new') }}">Publier</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('fos_user_security_logout') }}">Déconnexion ( {{ app.user.username }} )</a>
-                    </li>
-                {% else %}
-                    <li>
-                        <a href="{{ path('fos_user_registration_register') }}">Inscription</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('fos_user_security_login') }}">Connexion</a>
-                    </li>
-                {% endif %}
-            </ul>
-        </div>
-        <!-- /.navbar-collapse -->
-    </div>
-    <!-- /.container -->
-</nav>
+    </nav>
+{% endblock %}

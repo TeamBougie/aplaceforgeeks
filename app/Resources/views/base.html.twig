@@ -7,31 +7,10 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>{% block title 'aPlaceForGeeks' %}</title>
-    {{ include('css_block.html.twig') }}
-    <link href="{{ asset('bundles/app/css/blog-home.css') }}" rel="stylesheet">
+    {{ include('header/css_block.html.twig') }}
 </head>
 <body>
-
-{{ include(':header:navigation.html.twig') }}
-
-
-<div class="container">
-
-    <header>
-        {% block header %}
-            <h1>A place for Geeks</h1>
-        {% endblock %}
-    </header>
-
-    <div class="row">
-        <div class="col-xs-12">
-            {{ include(':alert:alert.html.twig') }}
-            {% block content '' %}
-        </div>
-    </div>
-
-</div>
-{{ include(':footer:footer.html.twig') }}
-{{ include('js_block.html.twig') }}
+    {% block body %}{% endblock %}
+    {{ include('header/js_block.html.twig') }}
 </body>
 </html>

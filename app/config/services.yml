@@ -11,3 +11,15 @@ services:
             class: AppBundle\Manager\PostManager
             arguments:
                   - "@=service('doctrine').getManager()"
+
+    app.avatar_manager:
+        class: AppBundle\Manager\AvatarUserResolver
+        arguments:
+            - "@=service('doctrine').getManager()"
+
+    app.twig.avatar_extension:
+        class: AppBundle\Twig\AvatarExtension
+        tags:
+        - { name: twig.extension }
+        arguments:
+            - "@app.avatar_manager"

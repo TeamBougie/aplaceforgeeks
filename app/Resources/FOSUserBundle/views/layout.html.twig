@@ -1,4 +1,24 @@
 {% extends "::base.html.twig" %}
-{% block content %}
-    {% block fos_user_content '' %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col l4 offset-l4">
+                <!--Naked Form-->
+                <div class="card-block">
+                    <!--Header-->
+                    <div class="text-center">
+                        <a href="{{ path('fos_user_security_login') }}">
+                            <img src=""/>
+                        </a>
+                    </div>
+                    {% block fos_user_content '' %}
+                    <!--Footer-->
+                    <div class="modal-footer"></div>
+                    <!--Naked Form-->
+                </div>
+            </div>
+        </div>
+    </div>
+
 {% endblock %}

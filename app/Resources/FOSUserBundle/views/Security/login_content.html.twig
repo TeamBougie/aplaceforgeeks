@@ -4,27 +4,40 @@
     <div class="alert alert-danger" role="alert">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
 {% endif %}
 
+
+<div class="center-align">
+    <a href="#" onclick="fb_login();" class="btn btn-block btn-social btn-facebook"> <span class="fa fa-facebook"></span> Se
+        connecter avec Facebook</a>
+    <div class="mt-2 mb-2 hr">OU</div>
+</div>
 <form action="{{ path("fos_user_security_check") }}" method="post" class="fos_user_registration_register">
     {% if csrf_token %}
         <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
     {% endif %}
-    <div class="form-group">
-        <label class="control-label" for="username">{{ 'security.login.username'|trans }}</label>
+    <div class="input-field">
+        <i class="material-icons prefix">account_circle</i>
         <input class="form-control" type="text" id="username" name="_username" value="{{ last_username }}" required="required" />
+        <label class="control-label" for="username">{{ 'security.login.username'|trans }}</label>
     </div>
-    <div class="form-group">
-        <label class="control-label" for="password">{{ 'security.login.password'|trans }}</label>
+    <div class="input-field">
+        <i class="material-icons prefix">https</i>
         <input class="form-control" type="password" id="password" name="_password" required="required" />
+        <label class="control-label" for="password">{{ 'security.login.password'|trans }}</label>
     </div>
-    <div class="form-group">
-        <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
-        <label class="control-label" for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
+    <div class="center-align section">
+        <label class="control-label" for="remember_me">
+            <input type="checkbox" class="filled-in" id="remember_me" name="_remember_me" value="on" />
+            <span>{{ 'security.login.remember_me'|trans }}</span>
+        </label>
     </div>
-    <div class="text-center">
-        <input type="submit" id="_submit" class="btn btn-primary" name="_submit" value="{{ 'security.login.submit'|trans }}" />
+    <div class="center-align section">
+        <input type="submit" id="_submit" class="btn waves-effect waves-light" name="_submit" value="{{ 'security.login.submit'|trans }}" />
     </div>
 </form>
+<div class="center-align">
+    <p class="tw">Pas encore inscrit ? <a href="{{ path('fos_user_registration_register') }}">S'inscrire</a></p>
+    <p class="tw"><a href="{{ path('fos_user_resetting_request') }}">Mot de passe oublié ?</a></p>
+</div>
 <hr>
-<a href="{{path("fos_user_resetting_request")}}">J'ai oublié mon mot de passe</a>
 
 

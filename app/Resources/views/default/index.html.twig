@@ -1,13 +1,5 @@
-{% extends "::base.html.twig" %}
-
-
-        {% block title 'Accueil' %}
-
-
-    {% block header %}
-        <h1>Accueil</h1>
-    {% endblock %}
-
+{% extends 'layout.html.twig' %}
+    {% block title 'Accueil' %}
     {% block content %}
         <div class="row">
 
@@ -142,8 +134,4 @@
         <!-- /.row -->
 
         <hr>
-    {% endblock %}
-
-    {% block footer %}
-        {{ parent() }}
     {% endblock %}

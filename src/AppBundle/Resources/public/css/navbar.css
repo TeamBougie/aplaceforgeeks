@@ -1,0 +1,94 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    background-color: #f9f9f9;
+}
+
+.blue_bg {
+    background-color: rgb(102, 193, 191);
+}
+
+.grey_bg {
+    background-color: rgb(62, 69, 81);
+}
+
+/*** NAVBAR ***/
+.navbar-dropdown-container{
+    width: 315px !important;
+    height:75px !important;
+    padding: 10px !important;
+    overflow: hidden;
+    top:70px !important;
+}
+.navbar-login {
+    width: 100% !important;
+    height:100% !important;
+    background: none !important;
+    align-self: center;
+}
+
+.btn-profil {
+    width: 100% !important;
+    height:100% !important;
+    display: inline-flex;
+    align-items: center;
+}
+
+.logout-btn{
+    margin-left:auto;
+}
+
+.navbar-brand img {
+    height: 42px;
+}
+
+.spacing {
+    height: 50px;
+}
+
+.navatar {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/*** FOOTER ***/
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    position: relative;
+    min-height: 100%;
+    height: inherit!important;
+}
+
+body {
+    height: inherit !important;
+    margin-bottom: 242px;
+    position: initial;
+}
+
+footer.page-footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: rgb(102, 193, 191);
+    height: 242px;
+}
+
+.logofacebook:hover {
+    color: #3b5998;
+}
+
+.logotwitter:hover {
+    color: #4099FF;
+}
+
+.logoinstagram:hover {
+    color: #8a3ab9;
+}
