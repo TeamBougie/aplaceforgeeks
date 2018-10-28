@@ -5,13 +5,13 @@
             <li class="navbar-login">
                 <div class="btn-profil">
                     <div>
-                        <a class="waves-effect waves-light btn" href="{{ path('fos_user_profile_show') }}">
+                        <a class="btn waves-effect waves-light green-bck dark-blue-color" href="{{ path('fos_user_profile_show') }}">
                             <i class="material-icons left">settings</i>
                             Settings
                         </a>
                     </div>
                     <div class="logout-btn">
-                        <a href="{{ path('fos_user_security_logout') }}" class="waves-effect waves-light btn red accent-4">
+                        <a href="{{ path('fos_user_security_logout') }}" class="btn waves-effect waves-light red-bck">
                             <i class="material-icons center">power_settings_new</i>
                         </a>
                     </div>
@@ -20,18 +20,18 @@
         </ul>
     {% endif %}
     <!-- Navigation -->
-    <nav>
+    <nav class="teal green-bck">
         <div class="nav-wrapper">
             <div class="container">
                 <a href="{{ path('homepage') }}" class="brand-logo">Logo</a>
                 <ul class="right hide-on-med-and-down">
                     {% if is_granted('ROLE_USER') %}
                         <li>
-                            <a href="{{ path('app_post_new') }}">Publier</a>
+                            <a class="dark-blue-color" href="{{ path('app_post_new') }}">Publier</a>
                         </li>
                         <!-- Dropdown Trigger -->
                         <li>
-                            <a class="dropdown-trigger" href="#!" data-target="user-nav-content">
+                            <a class="dropdown-trigger dark-blue-color" href="#!" data-target="user-nav-content">
                                 <img class="circle responsive-img navatar" src="{{ asset(get_avatar(app.user)) }}">
                                 {{ app.user.username }}
                                 <i class="material-icons right">arrow_drop_down</i>

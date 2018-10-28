@@ -1,9 +1,9 @@
-{% extends "FOSUserBundle::account_layout.html.twig" %}
+{% extends "::layout.html.twig" %}
 {% block title 'Mon compte' %}
 {% block header %}
     <h1>Tableau de bord</h1>
     <hr>
 {% endblock %}
-{% block fos_user_content %}
+{% block content %}
 {% include "FOSUserBundle:Profile:show_content.html.twig" %}
-{% endblock fos_user_content %}
+{% endblock %}

@@ -57,38 +57,11 @@ body {
     vertical-align: middle;
 }
 
-/*** FOOTER ***/
-
-/* Sticky footer styles
--------------------------------------------------- */
-html {
-    position: relative;
-    min-height: 100%;
-    height: inherit!important;
-}
-
-body {
-    height: inherit !important;
-    margin-bottom: 242px;
-    position: initial;
-}
-
-footer.page-footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    background-color: rgb(102, 193, 191);
-    height: 242px;
-}
-
-.logofacebook:hover {
-    color: #3b5998;
-}
-
-.logotwitter:hover {
-    color: #4099FF;
-}
-
-.logoinstagram:hover {
-    color: #8a3ab9;
+ul.dropdown-content{
+    top:55px !important;
+    border-width: 1px;
+    border-color: #65B816;
+    border-style: solid;
+    width:280px !important;
+    background-color: #092033 !important;
 }

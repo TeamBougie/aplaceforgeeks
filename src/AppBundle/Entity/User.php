@@ -49,14 +49,13 @@ class User extends BaseUser
     private $avatar;
     /**
      * @var string
-     * @Assert\NotBlank()
-     * @Assert\Length(max=20)
+     * @Assert\NotBlank(groups={"Registration"})
      * @ORM\Column(name="gender", type="string", length=20)
      */
     private $gender;
     /**
      * @var \DateTime
-     * @Assert\DateTime()
+     * @Assert\NotBlank(groups={"Registration"})
      * @ORM\Column(name="birthday", type="datetime", nullable=true)
      */
     private $birthday;
@@ -140,7 +139,7 @@ class User extends BaseUser
     /**
      * @return mixed
      */
-    public function getGender():String
+    public function getGender(): ?String
     {
         return $this->gender;
     }
@@ -156,7 +155,7 @@ class User extends BaseUser
     /**
      * @return mixed
      */
-    public function getBirthday():\DateTime
+    public function getBirthday(): ?\DateTime
     {
         return $this->birthday;
     }
