@@ -14,6 +14,51 @@ body {
 main {
     flex: 1 0 auto;
 }
+hr{
+    border-color: #65B816;
+}
+
+/**
+    Main colors - background - inputs
+ */
+
+.dark-blue-bck{
+    background-color: #092033 !important;
+}
+
+.dark-blue-color{
+    color:#092033 !important;
+}
+
+.green-bck{
+    background-color: #65B816 !important;
+}
+
+.green-color{
+    color: #65B816 !important;
+}
+.red-bck{
+    background-color: #C30A09 !important;
+}
+.red-color{
+    color: #C30A09 !important;
+}
+
+.border-bot-green-color{
+    border-bottom-color: #65B816 !important;
+}
+
+.checkbox-green[type="checkbox"].filled-in:checked+span:not(.lever):after{
+    border: 2px solid #65B816;
+    background-color: #65B816;
+}
+
+input[type]:not(.browser-default):focus:not([readonly]){
+    border-bottom-color: #65B816 !important;
+    box-shadow: 0 1px 0 0 #65B816;
+}
+
+
 .footer {
     position: absolute;
     bottom: 0;

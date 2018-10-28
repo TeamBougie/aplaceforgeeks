@@ -1,0 +1,16 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+<form action="{{ path('fos_user_resetting_send_email') }}" method="POST" class="fos_user_resetting_request">
+    <div class="input-field">
+        <label class="green-color" for="username">{{ 'resetting.request.username'|trans }}</label>
+        <input type="text" class="border-bot-green-color" id="username" name="username" required="required" />
+    </div>
+    <div class="center-align section">
+        <input type="submit" class="btn waves-effect waves-light green-bck dark-blue-color" value="{{ 'resetting.request.submit'|trans }}" />
+    </div>
+</form>
+<div class="center-align">
+    <p class="tw "><span>Pas encore inscrit ? </span><a href="{{ path('fos_user_registration_register') }}"><span class="green-color">S'inscrire</span></a></p>
+    <p class="tw"><span>Déjà inscrit ? </span><a href="{{ path('fos_user_security_login') }}"><span class="green-color">Se connecter</span></a></p>
+</div>
+<hr>

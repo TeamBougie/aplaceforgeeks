@@ -1,0 +1,43 @@
+.dropdown-content li{
+    background-color: #092033 !important;
+}
+.dropdown-content li:hover{
+    background-color: #092033de !important;
+}
+.dropdown-content li>span, .datepicker-footer button, .datepicker-table tbody{
+    color:#65B816 !important;
+}
+ul.dropdown-content{
+    top:55px !important;
+    border-width: 1px;
+    border-color: #65B816;
+    border-style: solid;
+    width:400px !important;
+}
+
+input.select-dropdown{
+    color:#65B816 !important;
+    border-bottom-color: #65B816 !important;
+}
+.select-wrapper .caret{
+    fill: #65B816 !important;
+}
+.datepicker-date-display{
+    background-color: #65B816 !important;
+}
+.datepicker-date-display span{
+    color: #092033 !important;
+}
+.datepicker-calendar-container{
+    background-color: #092033;
+}
+.datepicker-controls svg{
+    fill: #65B816 !important;
+}
+
+.datepicker-table td.is-today{
+    color: #C30A09 !important;
+}
+.datepicker-table td.is-selected{
+    background-color: #C30A09 !important;
+}

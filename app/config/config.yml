@@ -78,3 +78,9 @@ fos_user:
     from_email:
         address: vivienmarnier@gmail.com
         sender_name: vivous
+    registration:
+        form:
+            type:               AppBundle\Form\RegistrationType
+        confirmation:
+            enabled:    false
+            template:   FOSUserBundle:Registration:email.txt.twig
